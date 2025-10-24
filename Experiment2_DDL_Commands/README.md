@@ -105,12 +105,8 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 ---
-Create a table named Bonuses with the following constraints:
-BonusID as INTEGER should be the primary key.
-EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
-BonusAmount as REAL should be greater than 0.
-BonusDate as DATE.
-Reason as TEXT should not be NULL.
+<img width="1203" height="379" alt="image" src="https://github.com/user-attachments/assets/a8ec2279-98f6-4eed-ab0e-86b6a3d83f7c" />
+
 
 ```
 CREATE TABLE Bonuses (
@@ -129,11 +125,7 @@ CREATE TABLE Bonuses (
 
 **Question 2**
 ---
-Create a table named Invoices with the following constraints:
-InvoiceID as INTEGER should be the primary key.
-InvoiceDate as DATE.
-DueDate as DATE should be greater than the InvoiceDate.
-Amount as REAL should be greater than 0.
+<img width="939" height="334" alt="image" src="https://github.com/user-attachments/assets/8f4730ef-9def-4e65-8a05-9dda357d69d7" />
 
 ```
 CREATE TABLE Invoices (
@@ -152,7 +144,8 @@ CREATE TABLE Invoices (
 
 **Question 3**
 ---
-Write a SQL Query to add an attribute designation in the employee table with the data type VARCHAR(50).
+<img width="980" height="290" alt="image" src="https://github.com/user-attachments/assets/993f0b00-16ef-4b78-a728-beed35a9ced8" />
+
 
 ```
 ALTER TABLE employee
@@ -167,11 +160,7 @@ ADD COLUMN designation varchar(50);
 
 **Question 4**
 ---
-Create a table named Shipments with the following constraints:
-ShipmentID as INTEGER should be the primary key.
-ShipmentDate as DATE.
-SupplierID as INTEGER should be a foreign key referencing Suppliers(SupplierID).
-OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
+<img width="1208" height="295" alt="image" src="https://github.com/user-attachments/assets/d40b9deb-a630-49f4-9274-456e47d78276" />
 
 ```
 CREATE TABLE Shipments (
@@ -189,7 +178,8 @@ CREATE TABLE Shipments (
 
 **Question 5**
 ---
-Insert a book with ISBN 978-1234567890, Title Data Science Essentials, Author Jane Doe, Publisher TechBooks, and Year 2024 into the Books table.
+<img width="1211" height="268" alt="image" src="https://github.com/user-attachments/assets/99302091-eae1-4ed8-9bdf-eb99e2e7ff82" />
+
 
 ```
 INSERT INTO Books (ISBN, Title, Author, Publisher, Year)
@@ -204,14 +194,7 @@ VALUES ('978-1234567890', 'Data Science Essentials', 'Jane Doe', 'TechBooks', 20
 
 **Question 6**
 ---
-Create a new table named item with the following specifications and constraints:
-item_id as TEXT and as primary key.
-item_desc as TEXT.
-rate as INTEGER.
-icom_id as TEXT with a length of 4.
-icom_id is a foreign key referencing com_id in the company table.
-The foreign key should cascade updates and deletes.
-item_desc and rate should not accept NULL.
+<img width="1048" height="452" alt="image" src="https://github.com/user-attachments/assets/86abd673-88fa-4f78-9c0e-2d577219419f" />
 
 ```
 CREATE TABLE item (
@@ -233,10 +216,8 @@ CREATE TABLE item (
 
 **Question 7**
 ---
-Write an SQL Query to add the attributes designation, net_salary, and dob to the Companies table with the following data types:
-designation as VARCHAR(50)
-net_salary as NUMBER
-dob as DATE
+<img width="1117" height="585" alt="image" src="https://github.com/user-attachments/assets/123cda3b-b8bb-4ef9-8ccc-df94a08dd60d" />
+
 
 ```
 ALTER TABLE Companies
@@ -257,13 +238,7 @@ ADD COLUMN dob date;
 
 **Question 8**
 ---
-In the Books table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
-
-ISBN             Title                      Author           Publisher   Year
----------------  -------------------------  ---------------  ----------  ----------
-978-1234567890   Introduction to AI         John Doe
-978-9876543210   Deep Learning              Jane Doe         TechPress   2022
-978-1122334455   Cybersecurity Essentials   Alice Smith                  2021
+<img width="1170" height="467" alt="image" src="https://github.com/user-attachments/assets/05c67b6c-c800-42eb-bffd-463b221daddd" />
 
 ```
 INSERT INTO Books (ISBN, Title, Author)
@@ -283,11 +258,7 @@ VALUES ('978-1122334455', 'Cybersecurity Essentials', 'Alice Smith', 2021);
 
 **Question 9**
 ---
-Create a table named Orders with the following columns:
-
-OrderID as INTEGER
-OrderDate as TEXT
-CustomerID as INTEGER
+<img width="909" height="398" alt="image" src="https://github.com/user-attachments/assets/1c9421bf-48f7-41a8-844c-abbdf90a160a" />
 
 ```
 CREATE TABLE Orders (
@@ -305,9 +276,8 @@ CREATE TABLE Orders (
 
 **Question 10**
 ---
-Insert all employees from Former_employees into Employee
+<img width="730" height="347" alt="image" src="https://github.com/user-attachments/assets/e2548b50-6259-4a2b-a270-f1b0fc5c17ec" />
 
-Table attributes are EmployeeID, Name, Department, Salary
 
 ```
 INSERT INTO Employee (EmployeeID, Name, Department, Salary)
