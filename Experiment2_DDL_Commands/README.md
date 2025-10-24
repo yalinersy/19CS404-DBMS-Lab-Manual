@@ -104,124 +104,221 @@ CREATE TABLE Table_Name (
 ```
 
 **Question 1**
---
--- Paste Question 1 here
+---
+Create a table named Bonuses with the following constraints:
+BonusID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+BonusAmount as REAL should be greater than 0.
+BonusDate as DATE.
+Reason as TEXT should not be NULL.
 
-```sql
--- Paste your SQL code below for Question 1
+```
+CREATE TABLE Bonuses (
+    BonusID INTEGER PRIMARY KEY,
+    EmployeeID INTEGER REFERENCES Employees(EmployeeID),
+    BonusAmount REAL CHECK (BonusAmount > 0),
+    BonusDate DATE,
+    Reason TEXT NOT NULL
+);
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1242" height="368" alt="image" src="https://github.com/user-attachments/assets/4f1b17d7-3bc3-4333-ab72-1d2257620c13" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Create a table named Invoices with the following constraints:
+InvoiceID as INTEGER should be the primary key.
+InvoiceDate as DATE.
+DueDate as DATE should be greater than the InvoiceDate.
+Amount as REAL should be greater than 0.
 
-```sql
--- Paste your SQL code below for Question 2
+```
+CREATE TABLE Invoices (
+    InvoiceID INTEGER PRIMARY KEY,
+    InvoiceDate DATE,
+    DueDate DATE CHECK (DueDate > InvoiceDate),
+    Amount REAL CHECK (Amount > 0)
+);
+
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1227" height="367" alt="image" src="https://github.com/user-attachments/assets/251a305b-3e2d-436f-8345-55eabb19420b" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write a SQL Query to add an attribute designation in the employee table with the data type VARCHAR(50).
 
-```sql
--- Paste your SQL code below for Question 3
+```
+ALTER TABLE employee
+ADD COLUMN designation varchar(50);
+
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1234" height="375" alt="image" src="https://github.com/user-attachments/assets/f85c26a0-d396-4dc3-9730-d9261ca3ada9" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Create a table named Shipments with the following constraints:
+ShipmentID as INTEGER should be the primary key.
+ShipmentDate as DATE.
+SupplierID as INTEGER should be a foreign key referencing Suppliers(SupplierID).
+OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 
-```sql
--- Paste your SQL code below for Question 4
+```
+CREATE TABLE Shipments (
+    ShipmentID INTEGER PRIMARY KEY,
+    ShipmentDate DATE,
+    SupplierID INTEGER REFERENCES Suppliers(SupplierID),
+    OrderID INTEGER REFERENCES Orders(OrderID)
+);
+
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1234" height="328" alt="image" src="https://github.com/user-attachments/assets/2cdc1dfc-9eb2-4b51-98a3-234cf6822f4c" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+Insert a book with ISBN 978-1234567890, Title Data Science Essentials, Author Jane Doe, Publisher TechBooks, and Year 2024 into the Books table.
 
-```sql
--- Paste your SQL code below for Question 5
+```
+INSERT INTO Books (ISBN, Title, Author, Publisher, Year)
+VALUES ('978-1234567890', 'Data Science Essentials', 'Jane Doe', 'TechBooks', 2024);
+
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1234" height="326" alt="image" src="https://github.com/user-attachments/assets/cd9b598b-b9f6-46a4-b1f5-bf61a1239a96" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Create a new table named item with the following specifications and constraints:
+item_id as TEXT and as primary key.
+item_desc as TEXT.
+rate as INTEGER.
+icom_id as TEXT with a length of 4.
+icom_id is a foreign key referencing com_id in the company table.
+The foreign key should cascade updates and deletes.
+item_desc and rate should not accept NULL.
 
-```sql
--- Paste your SQL code below for Question 6
+```
+CREATE TABLE item (
+    item_id TEXT PRIMARY KEY,
+    item_desc TEXT NOT NULL,
+    rate INTEGER NOT NULL,
+    icom_id TEXT CHECK (length(icom_id) = 4),
+    FOREIGN KEY (icom_id) REFERENCES company(com_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1235" height="435" alt="image" src="https://github.com/user-attachments/assets/f48e90f5-fb7b-4d1e-91e9-5b77a641fdc9" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write an SQL Query to add the attributes designation, net_salary, and dob to the Companies table with the following data types:
+designation as VARCHAR(50)
+net_salary as NUMBER
+dob as DATE
 
-```sql
--- Paste your SQL code below for Question 7
+```
+ALTER TABLE Companies
+ADD COLUMN designation varchar(50);
+
+ALTER TABLE Companies
+ADD COLUMN net_salary number;
+
+ALTER TABLE Companies
+ADD COLUMN dob date;
+
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1236" height="490" alt="image" src="https://github.com/user-attachments/assets/34bb73b8-3bf5-4673-862f-a0bc0f7f97c4" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+In the Books table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
 
-```sql
--- Paste your SQL code below for Question 8
+ISBN             Title                      Author           Publisher   Year
+---------------  -------------------------  ---------------  ----------  ----------
+978-1234567890   Introduction to AI         John Doe
+978-9876543210   Deep Learning              Jane Doe         TechPress   2022
+978-1122334455   Cybersecurity Essentials   Alice Smith                  2021
+
+```
+INSERT INTO Books (ISBN, Title, Author)
+VALUES ('978-1234567890', 'Introduction to AI', 'John Doe');
+
+INSERT INTO Books (ISBN, Title, Author, Publisher, Year)
+VALUES ('978-9876543210', 'Deep Learning', 'Jane Doe', 'TechPress', 2022);
+
+INSERT INTO Books (ISBN, Title, Author, Year)
+VALUES ('978-1122334455', 'Cybersecurity Essentials', 'Alice Smith', 2021);
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1227" height="374" alt="image" src="https://github.com/user-attachments/assets/245b846a-8857-409d-8bda-fab487a2c6f4" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Create a table named Orders with the following columns:
 
-```sql
--- Paste your SQL code below for Question 9
+OrderID as INTEGER
+OrderDate as TEXT
+CustomerID as INTEGER
+
+```
+CREATE TABLE Orders (
+    OrderID INTEGER,
+    OrderDate TEXT,
+    CustomerID INTEGER
+);
+
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1231" height="458" alt="image" src="https://github.com/user-attachments/assets/73696189-ca1d-4b7f-8667-d57da47bdbda" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Insert all employees from Former_employees into Employee
 
-```sql
--- Paste your SQL code below for Question 10
+Table attributes are EmployeeID, Name, Department, Salary
+
+```
+INSERT INTO Employee (EmployeeID, Name, Department, Salary)
+SELECT EmployeeID, Name, Department, Salary
+FROM Former_employees;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1227" height="353" alt="image" src="https://github.com/user-attachments/assets/74f5c6e7-1ab4-42c8-bd1c-e5d87ff69a22" />
+
 
 
 ## RESULT
